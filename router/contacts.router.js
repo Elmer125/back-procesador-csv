@@ -1,5 +1,6 @@
 const boom = require("@hapi/boom");
-const contactRouter = require("express").Router();
+const express = require("express");
+const contactRouter = express.Router();
 const contactmodel = require("../models/contact.models");
 
 contactRouter.get("/", (req, res, next) => {
@@ -8,10 +9,10 @@ contactRouter.get("/", (req, res, next) => {
   });
 });
 
-contactRouter.post("/",  (req, res, next) => {
+contactRouter.post("/", (req, res, next) => {
   const body = req.body;
   try {
-     body.forEach((element) => {
+    body.forEach((element) => {
       const contact = new contactmodel({
         name: element.name,
         lastname: element.lastname,

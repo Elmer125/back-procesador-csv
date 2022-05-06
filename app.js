@@ -31,10 +31,11 @@ const options = {
 }
 
 app.use(cors(options));
+routerApi(app);
 app.use(express.static("build"));
 app.use(bodyParser.json());
 app.use(middleware.requestLogger);
-routerApi(app);
+
 app.use(middleware.unknownEndpoint);
 app.use(middleware.boomErrorHandler);
 app.use(middleware.errorHandler);
