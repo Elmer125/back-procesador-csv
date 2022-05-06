@@ -19,6 +19,17 @@ mongoose
     logger.error("Error connection to MongoDB", error);
   });
 
+  const whitelist = ['http://localhost:8080', 'https://myapp.co'];
+const options = {
+  origin: (origin, callback) => {
+    if (whitelist.includes(origin) || !origin) {
+      callback(null, true);
+    } else {
+      callback(new Error('no permitido'));
+    }
+  }
+}
+
 app.use(cors());
 app.use(express.static("build"));
 app.use(bodyParser.json());
