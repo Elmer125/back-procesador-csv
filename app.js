@@ -30,7 +30,7 @@ const options = {
   }
 }
 
-app.use(cors());
+app.use(cors(options));
 app.use(express.static("build"));
 app.use(bodyParser.json());
 app.use(middleware.requestLogger);
