@@ -19,7 +19,7 @@ mongoose
     logger.error("Error connection to MongoDB", error);
   });
 
-  const whitelist = ['http://localhost:8080', 'https://myapp.co'];
+  const whitelist = ['http://localhost:8080', 'https://blooming-sierra-49928.herokuapp.com/'];
 const options = {
   origin: (origin, callback) => {
     if (whitelist.includes(origin) || !origin) {
